@@ -20,5 +20,5 @@ def click_checkboxes(driver_instance):
     elem = driver_instance.find_element_by_xpath(checkbox_1)
     elem.click()
     elem1 = driver_instance.find_element_by_xpath(checkbox_2)
-    elem.click()
+    elem1.click()
     sleep(3)
