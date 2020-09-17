@@ -1,6 +1,6 @@
 from tests.helpers.support_functions import *
 
-main_page_header = 'test-content'
+main_page_header = 'test-header'
 main_page_content = 'test-content'
 
 
