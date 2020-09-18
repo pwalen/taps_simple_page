@@ -1,5 +1,5 @@
 from tests.helpers.support_functions import *
-from time import sleep
+
 
 checkbox_tab = 'checkbox-header'
 all_checkboxes = 'checkboxes'
@@ -21,4 +21,3 @@ def click_checkboxes(driver_instance):
     elem.click()
     elem1 = driver_instance.find_element_by_xpath(checkbox_2)
     elem1.click()
-    sleep(3)

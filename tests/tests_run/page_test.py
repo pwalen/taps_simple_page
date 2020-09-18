@@ -1,7 +1,7 @@
 import unittest
 from selenium import webdriver
 from config.test_settings import TestSettings
-from tests.page_objects import main_page, checkboxes_page
+from tests.page_objects import main_page, checkboxes_page, hovers_page
 
 class Test(unittest.TestCase):
     def setUp(self):
@@ -20,3 +20,10 @@ class Test(unittest.TestCase):
         checkboxes_page.click_checkboxes_tab(self.driver)
         self.assertTrue(checkboxes_page.checkboxes_visible(self.driver))
         checkboxes_page.click_checkboxes(self.driver)
+
+    def test3_hovers(self):
+        hovers_page.click_hovers_tab(self.driver)
+        self.assertTrue(hovers_page.hovers_content_displayed(self.driver))
+        hovers_page.hoover_over_element_and_click(self.driver)
+
+
