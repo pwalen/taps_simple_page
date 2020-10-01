@@ -17,10 +17,12 @@ def add_remove_content_visible(driver_instance):
 
 
 def add_element(driver_instance):
+    wait_for_visibility_of_element_by_xpath(driver_instance, new_element)
     elem = driver_instance.find_element_by_xpath(new_element)
     elem.click()
 
 def delete_element(driver_instance):
+    wait_for_visibility_of_element_by_xpath(driver_instance, new_element)
     elem = driver_instance.find_element_by_xpath(added_element)
     elem.click()
     wait_for_invisibility_of_element_by_xpath(driver_instance, added_element)
