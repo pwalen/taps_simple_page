@@ -19,3 +19,4 @@ def hoover_over_element_and_click(driver_instance):
     hover_over_element(driver_instance, gentleman_pic)
     elem = driver_instance.find_element_by_xpath(gentleman_link)
     elem.click()
+
