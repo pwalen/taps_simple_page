@@ -5,6 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import *
 
 
+
 def hover_over_element(driver_instance, xpath):
    elem = driver_instance.find_element_by_xpath(xpath)
    hover = ActionChains(driver_instance).move_to_element(elem)
@@ -35,6 +36,7 @@ def wait_for_invisibility_of_element_by_xpath(inv_driver_instance, xpath, time_t
    inv_elem = WebDriverWait(inv_driver_instance, time_to_wait).until(EC.invisibility_of_element_located((By.XPATH, xpath)))
    return inv_elem
 
-def wait_for_element_to_be_clickable(drive_instance, id, time_to_wait=20):
+def wait_for_element_to_be_clickable(drive_instance, id, time_to_wait=8):
     elem = WebDriverWait(drive_instance, time_to_wait).until(EC.element_to_be_clickable((By.ID)))
     return elem
+
