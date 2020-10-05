@@ -1,11 +1,17 @@
 from selenium import webdriver
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import *
+# from selenium.webdriver.common.action_chains import ActionChains
+# from selenium.webdriver.common.by import By
+# from selenium.webdriver.support.ui import WebDriverWait
+# from selenium.webdriver.support import expected_conditions as EC
+# from selenium.common.exceptions import *
 from tests.helpers.support_functions import *
 from time import sleep
+
+"""
+TEST 1
+
+The test is considered passed when the 'Success' popup displays.
+"""
 
 driver = webdriver.Chrome('/Users/pawelwalenda/PycharmProjects/taps_simple_page/chromedriver')
 url = 'http://simpletestsite.fabrykatestow.pl/'
@@ -32,18 +38,13 @@ last_name_elem.send_keys('weather')
 wait_for_visibility_of_element(driver, submit_button, time_to_wait=1)
 submit_button_elem.click()
 
-try:
-    WebDriverWait(driver, 1).until(EC.alert_is_present())
-    alert = driver.switch_to.alert
-    print(True)
-except TimeoutException:
-    print(False)
+alert_obj = driver.switch_to.alert.text
+print(alert_obj)
 
-
+if alert_obj == 'success':
+    print('Test 1 is passed')
+else:
+    print('Test 1 is NOT passed')
 
 sleep(1)
 driver.quit()
-
-
-
-
