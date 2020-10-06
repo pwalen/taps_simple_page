@@ -1,8 +1,8 @@
 import unittest
 from selenium import webdriver
 from config.test_settings import TestSettings
-from tests.page_objects import main_page, checkboxes_page, hovers_page, users_page, inputs_page, dropdown_page, add_remove_page, datepicker_page, basicauth_page, loggedin_page
-from time import sleep
+from tests.page_objects import main_page, checkboxes_page, hovers_page, users_page, inputs_page, dropdown_page, add_remove_page
+
 
 
 class Test(unittest.TestCase):
@@ -57,29 +57,6 @@ class Test(unittest.TestCase):
         add_remove_page.add_element(self.driver)
         add_remove_page.delete_element(self.driver)
         self.assertTrue(add_remove_page.element_invisible(self.driver))
-
-    # def test10_date_picker(self):
-    #     datepicker_page.click_date_picker_tab(self.driver)
-    #     self.assertTrue(datepicker_page.date_picker_visible(self.driver))
-    #     datepicker_page.click_date(self.driver)
-
-    # def test10_datepicker_correct_input(self):
-    #     datepicker_page.click_date_picker_tab(self.driver)
-    #     self.assertTrue(datepicker_page.date_picker_visible(self.driver))
-    #     self.assertTrue(datepicker_page.send_correct_keys_to_date(self.driver))
-
-    def test11_basicauth_correct_input(self):
-        basicauth_page.click_basicauth_tab(self.driver)
-        self.assertTrue(basicauth_page.basicauth_content_visible(self.driver))
-        basicauth_page.send_correct_keys_to_basicauth(self.driver)
-        self.assertTrue(loggedin_page.loggedin_message_displayed(self.driver))
-
-    def test12_basicauth_incorrect_input(self):
-        basicauth_page.click_basicauth_tab(self.driver)
-        self.assertTrue(basicauth_page.basicauth_content_visible(self.driver))
-        basicauth_page.send_incorrect_keys_to_basicauth(self.driver)
-        self.assertTrue(basicauth_page.invalid_credentials_message_displayed(self.driver))
-
 
 
 if __name__ == '__main__':

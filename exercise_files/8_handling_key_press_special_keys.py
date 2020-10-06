@@ -56,6 +56,13 @@ for key, keys_key in zip(special_keys, keys_special_keys):
 
 sleep(1)
 
+"""
+TEST 1
+
+The test is considered passed when the list of keys pressed is equal to the list of keys displayed.
+"""
+
+
 special_keys_verified = []
 keys_special_keys_verified = []
 
