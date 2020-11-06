@@ -15,7 +15,7 @@ TEST 1, TEST 2
 The test is considered passed when the selected Option ('Option 1' or 'Option 2') displays.
 """
 
-driver = webdriver.Chrome('/Users/pawelwalenda/PycharmProjects/taps_simple_page/chromedriver')
+driver = webdriver.Chrome('/Users/pawelwalenda/chromedriver')
 url = 'http://simpletestsite.fabrykatestow.pl/'
 driver.get(url)
 

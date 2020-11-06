@@ -18,7 +18,7 @@ We will remove the fifteen elements previously added.
 
 """
 
-driver = webdriver.Chrome('/Users/pawelwalenda/PycharmProjects/taps_simple_page/chromedriver')
+driver = webdriver.Chrome('/Users/pawelwalenda/chromedriver')
 url = 'http://simpletestsite.fabrykatestow.pl/'
 driver.get(url)
 
@@ -35,29 +35,36 @@ addelement_button_elem = driver.find_element_by_xpath(addelement_button)
 wait_for_visibility_of_element_by_xpath(driver, addelement_button)
 for x in range(1, 16):
     addelement_button_elem.click()
+    sleep(0.5)
 
 
+# for x in range(1, 16):
+#     try:
+#         delete_button_xpath = ('//*[@id="elements"]/button[{}]'.format(x))
+#         wait_for_visibility_of_element_by_xpath(driver, delete_button_xpath)
+#         delete_button_elem = driver.find_element_by_xpath(delete_button_xpath)
+#         sleep(0.5)
+#         print('Test A {} is passed'.format(x))
+#     except NoSuchElementException:
+#         print('Test A {} is NOT passed'.format(x))
+#         pass
+
+button_class = driver.find_element_by_class_name("added-manually")
 for x in range(1, 16):
-    try:
-        delete_button_xpath = ('//*[@id="elements"]/button[{}]'.format(x))
-        wait_for_visibility_of_element_by_xpath(driver, delete_button_xpath)
-        delete_button_elem = driver.find_element_by_xpath(delete_button_xpath)
-        print('Test A {} is passed'.format(x))
-    except NoSuchElementException:
-        print('Test A {} is NOT passed'.format(x))
-        pass
+    button_class.click()
 
 
-for x in range(15, 0, -1):
-    try:
-        delete_button_xpath = ('//*[@id="elements"]/button[{}]'.format(x))
-        wait_for_visibility_of_element_by_xpath(driver, delete_button_xpath, time_to_wait=1)
-        delete_button_elem = driver.find_element_by_xpath(delete_button_xpath)
-        delete_button_elem.click()
-        print('Test B {} is passed'.format(x))
-    except NoSuchElementException:
-        print('Test B {} is NOT passed'.format(x))
-        pass
+# for x in range(15, 0, -1):
+#     try:
+#         delete_button_xpath = ('//*[@id="elements"]/button[{}]'.format(x))
+#         wait_for_visibility_of_element_by_xpath(driver, delete_button_xpath, time_to_wait=1)
+#         delete_button_elem = driver.find_element_by_xpath(delete_button_xpath)
+#         delete_button_elem.click()
+#         sleep(0.5)
+#         print('Test B {} is passed'.format(x))
+#     except NoSuchElementException:
+#         print('Test B {} is NOT passed'.format(x))
+#         pass
 
 
 sleep(3)

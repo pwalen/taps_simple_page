@@ -20,19 +20,18 @@ def send_correct_keys_to_input(driver_instance):
     elem = driver_instance.find_element_by_xpath(input)
     elem.send_keys('123456')
     value = 123456
-    if value == int(elem.get_attribute('value')):
+    if value == int(elem.get_attribute("value")):
         return True
     else:
         return False
+
 
 def send_incorrect_keys_to_input(driver_instance):
     wait_for_visibility_of_element(driver_instance, input, time_to_wait=1)
     elem = driver_instance.find_element_by_xpath(input)
     elem.send_keys('abc')
     value = 'abc'
-    if value == (elem.get_attribute('value')):
+    if value == elem.get_attribute("value"):
         return False
     else:
         return True
-
-
