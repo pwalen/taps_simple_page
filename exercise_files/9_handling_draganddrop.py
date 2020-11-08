@@ -1,43 +1,40 @@
 from selenium import webdriver
-
 from selenium.webdriver.common.action_chains import ActionChains
-# from selenium.webdriver.common.by import By
-# from selenium.webdriver.support.ui import WebDriverWait
-# from selenium.webdriver.support import expected_conditions as EC
-# from selenium.common.exceptions import *
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import *
+
 from tests.helpers.support_functions import *
 from time import sleep
 
-driver = webdriver.Chrome('/Users/pawelwalenda/PycharmProjects/taps_simple_page/chromedriver')
+driver = webdriver.Chrome('/Users/pawelwalenda/chromedriver')
 url = 'http://simpletestsite.fabrykatestow.pl/'
 driver.get(url)
 
 draganddrop_tab = 'draganddrop-header'
 draganddrop_content = 'draganddrop-content'
-square_a = 'column-a'
-square_b = 'column-b'
+column_a = 'column-a'
+column_b = 'column-b'
 
+column_a_xpath = '//*[@id="column-a"]'
+column_b_xpath = '//*[@id="column-b"]'
 
-draganddrop_tab_elem = driver.find_element_by_id(draganddrop_tab)
-wait_for_visibility_of_element(driver, draganddrop_tab, time_to_wait=1)
-draganddrop_tab_elem.click()
+click_draganddrop_tab = driver.find_element_by_id(draganddrop_tab)
+click_draganddrop_tab.click()
 
-wait_for_visibility_of_element(driver, draganddrop_content, time_to_wait=1)
+wait_for_visibility_of_element(driver, draganddrop_content)
 
-square_a_elem = driver.find_element_by_id(square_a)
-square_b_elem = driver.find_element_by_id(square_b)
+draggable = driver.find_element(By.XPATH, column_a_xpath)
+droppable = driver.find_element(By.XPATH, column_b_xpath)
 
-action = webdriver.ActionChains(driver)
+builder.drag_and_drop()
+# ActionChains(driver).drag_and_drop(draggable, droppable).perform()
+ActionChains(driver).click_and_hold(draggable)\
+    .move_to_element(droppable)\
+    .release(draggable)\
+    .perform()
 
-action.click_and_hold(square_a_elem).move_by_offset(154, 0).perform()
-
-print(square_a_elem.size)
-print(square_a_elem.location)
-
-print(square_b_elem.size)
-print(square_b_elem.location)
-
-
-sleep(3)
+sleep(5)
 driver.quit()
 

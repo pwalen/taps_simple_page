@@ -39,7 +39,7 @@ target_elem = driver.find_element_by_id(target)
 wait_for_visibility_of_element(driver, target, time_to_wait=2)
 
 special_keys = ['TAB', 'ADD', 'ALT', 'ARROW_DOWN', 'ARROW_LEFT', 'ARROW_RIGHT', 'ARROW_UP', 'BACKSPACE', 'BACK_SPACE', 'CANCEL', 'CLEAR', 'COMMAND', 'CONTROL', 'DECIMAL', 'DELETE', 'DIVIDE', 'DOWN', 'END', 'EQUALS', 'ESCAPE', 'PAGE_DOWN', 'PAGE_UP', 'PAUSE', 'RIGHT', 'SEMICOLON', 'SEPARATOR', 'SHIFT', 'SPACE', 'SUBTRACT', 'UP']
-keys_special_keys  = [Keys.TAB, Keys.ADD, Keys.ALT, Keys.ARROW_DOWN, Keys.ARROW_LEFT, Keys.ARROW_RIGHT, Keys.ARROW_UP, Keys.BACKSPACE, Keys.BACK_SPACE, Keys.CANCEL, Keys.CLEAR, Keys.COMMAND, Keys.CONTROL, Keys.DECIMAL, Keys.DELETE, Keys.DIVIDE, Keys.DOWN, Keys.END, Keys.EQUALS, Keys.ESCAPE, Keys.PAGE_DOWN, Keys.PAGE_UP, Keys.PAUSE, Keys.RIGHT, Keys.SEMICOLON, Keys.SEPARATOR, Keys.SHIFT, Keys.SPACE, Keys.SUBTRACT, Keys.UP]
+keys_special_keys = [Keys.TAB, Keys.ADD, Keys.ALT, Keys.ARROW_DOWN, Keys.ARROW_LEFT, Keys.ARROW_RIGHT, Keys.ARROW_UP, Keys.BACKSPACE, Keys.BACK_SPACE, Keys.CANCEL, Keys.CLEAR, Keys.COMMAND, Keys.CONTROL, Keys.DECIMAL, Keys.DELETE, Keys.DIVIDE, Keys.DOWN, Keys.END, Keys.EQUALS, Keys.ESCAPE, Keys.PAGE_DOWN, Keys.PAGE_UP, Keys.PAUSE, Keys.RIGHT, Keys.SEMICOLON, Keys.SEPARATOR, Keys.SHIFT, Keys.SPACE, Keys.SUBTRACT, Keys.UP]
 
 special_keys_selected = []
 keys_special_keys_selected =[]
@@ -68,7 +68,7 @@ keys_special_keys_verified = []
 
 for key, keys_key in zip(special_keys_selected, keys_special_keys_selected):
     target_elem.send_keys(keys_key)
-    result_text = "You entered: " + key
+    result_text = f"You entered: {key}"
     if result_text in driver.page_source:
         special_keys_verified.append(key)
         keys_special_keys_verified.append(keys_key)
@@ -81,5 +81,27 @@ if special_keys_verified == special_keys_selected and keys_special_keys_verified
 else:
     print('Test 1 is NOT passed')
 
+
+# special_keys_keys = ["Keys." + s for s in special_keys]
+#
+# for s in special_keys:
+#     target_elem.send_keys(Keys.{s})
+#
+#     sleep(0.5)
+    # result_text = "You entered: " + key
+    # if result_text in driver.page_source:
+    #     special_keys_verified.append(key)
+    #     keys_special_keys_verified.append(keys_key)
+    # else:
+    #     continue
+print(special_keys)
+print(special_keys_verified)
+print(special_keys_selected)
+print(keys_special_keys)
+print(keys_special_keys_verified)
+print(keys_special_keys_selected)
+
 sleep(1)
 driver.quit()
+
+

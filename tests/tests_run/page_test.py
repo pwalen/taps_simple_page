@@ -133,11 +133,20 @@ class Test(unittest.TestCase):
         key_presses_page.click_key_presses_tab(self.driver)
         self.assertTrue(key_presses_page.key_presses_content_visible(self.driver))
 
-
+    # The test is considered passed when the list of keys pressed is equal to the keys displayed.
     def test23_key_presses_ascii_letters(self):
         key_presses_page.click_key_presses_tab(self.driver)
         self.assertTrue(key_presses_page.press_ascii_letters((self.driver)))
 
+    # The test is considered passed when the list of keys pressed is equal to the keys displayed.
+    def test24_key_presses_digits(self):
+        key_presses_page.click_key_presses_tab(self.driver)
+        self.assertTrue(key_presses_page.press_digits((self.driver)))
+
+    # The list of the special keys pressed must be equal to the keys' names displayed.
+    def test25_key_presses_special_keys(self):
+        key_presses_page.click_key_presses_tab(self.driver)
+        self.assertTrue(key_presses_page.press_special_keys((self.driver)))
 
 
 if __name__ == '__main__':
