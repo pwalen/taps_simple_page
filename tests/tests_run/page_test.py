@@ -4,7 +4,7 @@ from config.test_settings import TestSettings
 from tests.page_objects import main_page, checkboxes_page, hovers_page, users_page, inputs_page, dropdown_page, \
     add_remove_page
 from tests.page_objects_homework import dropdown_page_2, add_remove_page_2, datepicker_page, basicauth_page, \
-    basicauth_logged_in_page, form_page, key_presses_page
+    basicauth_logged_in_page, form_page, key_presses_page, drag_and_drop_page, status_codes_page
 from time import sleep
 
 class Test(unittest.TestCase):
@@ -148,6 +148,22 @@ class Test(unittest.TestCase):
         key_presses_page.click_key_presses_tab(self.driver)
         self.assertTrue(key_presses_page.press_special_keys((self.driver)))
 
+    def test26_drag_and_drop_visibility(self):
+        drag_and_drop_page.click_drag_and_drop_tab(self.driver)
+        self.assertTrue(drag_and_drop_page.drag_and_drop_content_visible(self.driver))
+
+    # Drag and Drop from source to destination and vice versa.
+    def test27_drag_and_drop_elements_on_page(self):
+        drag_and_drop_page.click_drag_and_drop_tab(self.driver)
+        self.assertTrue(drag_and_drop_page.drag_and_drop_move_elements(self.driver))
+
+    def test28_status_codes_visibility(self):
+        status_codes_page.click_status_codes_tab(self.driver)
+        self.assertTrue(status_codes_page.status_codes_content_visible(self.driver))
+
+    def test29_status_code_checking(self):
+        status_codes_page.click_status_codes_tab(self.driver)
+        self.assertTrue((status_codes_page.status_codes_checking(self.driver)))
 
 if __name__ == '__main__':
     unittest.main()
