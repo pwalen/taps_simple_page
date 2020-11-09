@@ -49,3 +49,4 @@ def wait_for_invisibility_of_elements_by_class_name(inv_driver_instance, class_n
     inv_elem = WebDriverWait(inv_driver_instance, time_to_wait).until(
         EC.invisibility_of_element_located((By.CLASS_NAME, class_name)))
     return inv_elem
+

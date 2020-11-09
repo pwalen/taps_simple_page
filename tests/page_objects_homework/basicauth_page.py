@@ -7,6 +7,7 @@ password = 'ba_password'
 login_button = '//*[@id="content"]/button'
 invalid_credentials = 'loginFormMessage'
 
+
 def click_basicauth_tab(driver_instance):
     elem = driver_instance.find_element_by_id(basicauth_tab)
     elem.click()
@@ -25,6 +26,7 @@ def send_correct_keys_to_basicauth(driver_instance):
     elem2 = driver_instance.find_element_by_id(password)
     elem2.send_keys('admin')
 
+
 def send_incorrect_keys_to_basicauth(driver_instance):
     wait_for_visibility_of_element(driver_instance, username, time_to_wait=1)
     elem1 = driver_instance.find_element_by_id(username)
@@ -32,6 +34,7 @@ def send_incorrect_keys_to_basicauth(driver_instance):
     wait_for_visibility_of_element(driver_instance, password, time_to_wait=1)
     elem2 = driver_instance.find_element_by_id(password)
     elem2.send_keys('uouiu')
+
 
 def click_login_button(driver_instance):
     wait_for_visibility_of_element_by_xpath(driver_instance, login_button)
@@ -44,5 +47,3 @@ def invalid_credentials_displayed(driver_instance):
         return True
     else:
         return False
-
-

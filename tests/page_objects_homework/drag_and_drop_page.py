@@ -1,4 +1,5 @@
 import os
+
 from tests.helpers.support_functions import *
 
 drag_and_drop_tab = 'draganddrop-header'

@@ -1,6 +1,8 @@
-from tests.helpers.support_functions import *
 import string
+
 from selenium.webdriver.common.keys import Keys
+
+from tests.helpers.support_functions import *
 
 key_presses_tab = 'keypresses-header'
 key_presses_content = 'keypresses-content'

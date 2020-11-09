@@ -5,6 +5,7 @@ add_remove_element_content = 'addremoveelements-content'
 new_element = '//*[@id="addremoveelements-content"]/div/div/button'
 added_element = 'added-manually'
 
+
 def click_add_remove_tab(driver_instance):
     elem = driver_instance.find_element_by_id(add_remove_element_tab)
     elem.click()
@@ -29,6 +30,7 @@ def delete_fifteen_elements(driver_instance):
         wait_for_visibility_of_element_by_xpath(driver_instance, added_element)
         elem = driver_instance.find_element_by_xpath(added_element)
         elem.click()
+
 
 def element_invisible(driver_instance):
     try:

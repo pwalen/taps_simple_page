@@ -1,10 +1,11 @@
-from tests.helpers.support_functions import *
 import requests
+
+from tests.helpers.support_functions import *
 
 status_codes_tab = 'statuscodes-header'
 status_codes_content = 'statuscodes-content'
 
-status_codes_elements_id = ['200siteAnchor', '305siteAnchor','404siteAnchor','500siteAnchor']
+status_codes_elements_id = ['200siteAnchor', '305siteAnchor', '404siteAnchor', '500siteAnchor']
 codes = [200, 305, 404, 500]
 
 
