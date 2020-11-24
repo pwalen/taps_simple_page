@@ -11,7 +11,11 @@ from tests.page_objects_homework import dropdown_page_2, add_remove_page_2, date
 
 class Test(unittest.TestCase):
     def setUp(self):
-        self.driver = webdriver.Chrome('/Users/pawelwalenda/chromedriver')
+
+        self.selenium_grid_url = 'http://192.168.0.20:4444/wd/hub'
+        self.capabilities = webdriver.DesiredCapabilities.CHROME.copy()
+        self.driver = webdriver.Remote(desired_capabilities=self.capabilities, command_executor=self.selenium_grid_url)
+        # self.driver = webdriver.Chrome('/Users/pawelwalenda/chromedriver')
         self.url = TestSettings.page_url
         self.driver.get(self.url)
         self.driver.maximize_window()
