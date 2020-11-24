@@ -3,4 +3,4 @@ In Mac terminal execute the following command lines
 java -jar selenium-server-standalone-3.141.59.jar -role hub -hubConfig gridHubConfig.json
 
 2. to start the nodes:
-java -Dwebdriver.chrome.driver=chromedriver.exe -jar selenium-server-standalone-3.141.59.jar -role node -nodeConfig nodeConfig.json
+java -jar selenium-server-standalone-3.141.59.jar -role node -nodeConfig nodeConfig.json
